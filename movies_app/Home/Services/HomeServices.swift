@@ -32,9 +32,9 @@ class HomeServices{
     public func fetchRequest(completion: @escaping (Result<[User], NetworkError>) -> Void){
         let urlString: String = "users"
         
-        var endpoint: Endpoint = Endpoint(url: urlString, method: HttpMethod.get, header: nil, parameters: nil)
+        let endpoint: Endpoint = Endpoint(url: urlString)
      
-        httpClient?.request2(with: endpoint, decodeType: UsersList.self){
+        httpClient?.request(with: endpoint, decodeType: UsersList.self){
             result in
             switch result {
             case .success(let success):
